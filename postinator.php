@@ -12,7 +12,7 @@ Description: Content widgets created for developers, easy for the users.
 class Postinator extends WP_Widget {
 
 	/**
-	 * Register widget
+	 * Construct
 	 */
 
 	function __construct() {
@@ -23,7 +23,38 @@ class Postinator extends WP_Widget {
 		);
 	}
 
-	// functions
+	/**
+	 * Widget
+	 */
+
+	public function widget( $args, $instance )
+	{
+		// Get posts.
+		$posts = array();
+		$posts = new WP_Query( $posts );
+
+		// No posts found.
+		if ( ! $posts->have_posts() )
+			return false;
+
+		// Widget prefix.
+		echo $args['before_widget'];
+
+		// Loop through results.
+		while( $posts->have_posts() )
+		{
+			$posts->the_post();
+			get_template_part( 'content', get_post_type() );
+		}
+
+		// Widget suffix.
+		echo $args['after_widget'];
+
+		// Reset postdata to clean everything up.
+		wp_reset_postdata();
+	}
+
+	// functions:
 	// - widget
 	// - form
 	// - update
