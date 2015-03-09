@@ -22,6 +22,29 @@ class Postinator extends WP_Widget {
 			array( 'description' => __( 'Pick me! I show content.', 'postinator' ), ) // Args
 		);
 	}
+
+	// functions
+	// - widget
+	// - form
+	// - update
+
+	// content (get/fields):
+	// - post_types
+	// - taxonomy_terms
+
+	// extra's:
+	// - sort
+	// - limit
+
+	// extend:
+	// - before widget
+	// - after widget
+
+	// brainfarts:
+	// - API
+	// - Timber
+	// - add fields
+	// - translations
 }
 
 function postinatorInit() {
