@@ -54,10 +54,21 @@ class Postinator extends WP_Widget {
 		wp_reset_postdata();
 	}
 
-	// functions:
-	// - widget
-	// - form
-	// - update
+	/**
+	 * Form
+	 */
+
+	public function form( $instance )
+	{
+	}
+
+	/**
+	 * Update
+	 */
+
+	public function update( $new_instance, $old_instance )
+	{
+	}
 
 	// content (get/fields):
 	// - post_types
